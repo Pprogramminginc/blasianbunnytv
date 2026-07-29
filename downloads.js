@@ -9,9 +9,9 @@ document.querySelectorAll("[data-download-card]").forEach((card) => {
   const note = card.querySelector("[data-code-note]");
   const input = form?.querySelector("input");
   const button = form?.querySelector("button");
-  const downloadLink = card.querySelector("[data-download-link]");
+  const downloadLinks = card.querySelector("[data-download-links]");
 
-  if (!productId || !form || !note || !input || !downloadLink) {
+  if (!productId || !form || !note || !input || !downloadLinks) {
     return;
   }
 
@@ -40,10 +40,21 @@ document.querySelectorAll("[data-download-card]").forEach((card) => {
         return;
       }
 
-      note.textContent = "Unlocked! Your download is ready below.";
+      note.textContent = data.files.length > 1
+        ? "Unlocked! Your downloads are ready below."
+        : "Unlocked! Your download is ready below.";
       card.classList.add("is-unlocked");
-      downloadLink.href = data.fileUrl;
-      downloadLink.hidden = false;
+
+      data.files.forEach((file) => {
+        const link = document.createElement("a");
+        link.className = "button primary download-link";
+        link.href = file.url;
+        link.download = "";
+        link.textContent = `Download ${file.label}`;
+        downloadLinks.append(link);
+      });
+      downloadLinks.hidden = false;
+
       form.hidden = true;
     } catch (error) {
       note.textContent = "Something went wrong. Please try again in a moment.";

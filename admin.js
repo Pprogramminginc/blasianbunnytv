@@ -66,11 +66,18 @@ function formatDate(value) {
   return new Date(value).toLocaleString();
 }
 
+function formatExpiry(value) {
+  if (!value) {
+    return "Never";
+  }
+  return formatDate(value);
+}
+
 function statusFor(row) {
   if (row.used_at) {
     return "Used";
   }
-  if (new Date(row.expires_at) < new Date()) {
+  if (row.expires_at && new Date(row.expires_at) < new Date()) {
     return "Expired";
   }
   return "Active";
@@ -92,7 +99,7 @@ function renderCodes(codes) {
       <td>${row.product_id}</td>
       <td><code>${row.code}</code></td>
       <td>${formatDate(row.created_at)}</td>
-      <td>${formatDate(row.expires_at)}</td>
+      <td>${formatExpiry(row.expires_at)}</td>
       <td><span class="status-pill status-${status.toLowerCase()}">${status}</span></td>
       <td></td>
     `;
@@ -150,9 +157,12 @@ if (loginForm) {
 generateButtons.forEach((button) => {
   button.addEventListener("click", async () => {
     const productId = button.dataset.generate;
+    const select = document.querySelector(`[data-expiry-select="${productId}"]`);
+    const hours = select && select.value !== "" ? Number(select.value) : null;
+
     button.disabled = true;
 
-    const data = await callAdmin("/api/admin/generate", { productId });
+    const data = await callAdmin("/api/admin/generate", { productId, hours });
 
     button.disabled = false;
 
@@ -166,7 +176,7 @@ generateButtons.forEach((button) => {
     resultBox.innerHTML = `
       New code for <strong>${productId}</strong>:
       <code>${data.code}</code>
-      <small>Expires ${formatDate(data.expiresAt)} — one-time use.</small>
+      <small>${data.expiresAt ? `Expires ${formatDate(data.expiresAt)}` : "No expiration"} — one-time use.</small>
     `;
 
     loadCodes();

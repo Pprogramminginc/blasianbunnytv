@@ -38,15 +38,45 @@
 
         <div class="admin-panel" data-admin-panel hidden>
           <div class="admin-generate" aria-label="Generate a new code">
-            <button type="button" class="button primary" data-generate="shipping-guide">
-              Generate Shipping Guide code
-            </button>
-            <button type="button" class="button primary" data-generate="shipping-book">
-              Generate Shipping Book code
-            </button>
-            <button type="button" class="button primary" data-generate="shipping-bundle">
-              Generate Shipping Bundle code
-            </button>
+            <div class="generate-row">
+              <span>Shipping Guide</span>
+              <select data-expiry-select="shipping-guide">
+                <option value="1">Expires in 1 hour</option>
+                <option value="24" selected>Expires in 24 hours</option>
+                <option value="72">Expires in 3 days</option>
+                <option value="168">Expires in 7 days</option>
+                <option value="">No expiration</option>
+              </select>
+              <button type="button" class="button primary" data-generate="shipping-guide">
+                Generate code
+              </button>
+            </div>
+            <div class="generate-row">
+              <span>Shipping Book</span>
+              <select data-expiry-select="shipping-book">
+                <option value="1">Expires in 1 hour</option>
+                <option value="24" selected>Expires in 24 hours</option>
+                <option value="72">Expires in 3 days</option>
+                <option value="168">Expires in 7 days</option>
+                <option value="">No expiration</option>
+              </select>
+              <button type="button" class="button primary" data-generate="shipping-book">
+                Generate code
+              </button>
+            </div>
+            <div class="generate-row">
+              <span>Shipping Bundle</span>
+              <select data-expiry-select="shipping-bundle">
+                <option value="1">Expires in 1 hour</option>
+                <option value="24" selected>Expires in 24 hours</option>
+                <option value="72">Expires in 3 days</option>
+                <option value="168">Expires in 7 days</option>
+                <option value="">No expiration</option>
+              </select>
+              <button type="button" class="button primary" data-generate="shipping-bundle">
+                Generate code
+              </button>
+            </div>
           </div>
 
           <div class="generate-result" data-generate-result hidden></div>

@@ -1,11 +1,12 @@
 const { callRpc } = require("./_supabase");
 
-// TODO: swap these placeholders for the real PDF paths once the files are added
-// (e.g. under /assets/downloads/).
+const GUIDE_FILE = { label: "Shipping Guide", url: "assets/downloads/shipping-guide.pdf" };
+const BOOK_FILE = { label: "Shipping Book", url: "assets/downloads/shipping-book.pdf" };
+
 const PRODUCT_FILES = {
-  "shipping-guide": "#",
-  "shipping-book": "#",
-  "shipping-bundle": "#",
+  "shipping-guide": [GUIDE_FILE],
+  "shipping-book": [BOOK_FILE],
+  "shipping-bundle": [GUIDE_FILE, BOOK_FILE],
 };
 
 module.exports = async (req, res) => {
@@ -32,7 +33,7 @@ module.exports = async (req, res) => {
       return;
     }
 
-    res.status(200).json({ ok: true, fileUrl: PRODUCT_FILES[productId] });
+    res.status(200).json({ ok: true, files: PRODUCT_FILES[productId] });
   } catch (error) {
     res.status(502).json({ ok: false, error: "Lookup failed" });
   }
