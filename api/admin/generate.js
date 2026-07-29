@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { password, productId, hours } = req.body || {};
+  const { password, productId, hours, multiUse } = req.body || {};
 
   if (!checkPassword(password)) {
     res.status(401).json({ ok: false, error: "Incorrect password" });
@@ -32,9 +32,17 @@ module.exports = async (req, res) => {
     if (hours !== undefined) {
       params.p_hours = hours;
     }
+    if (multiUse !== undefined) {
+      params.p_multi_use = Boolean(multiUse);
+    }
     const rows = await callRpc("generate_download_code", params);
     const row = rows[0];
-    res.status(200).json({ ok: true, code: row.code, expiresAt: row.expires_at });
+    res.status(200).json({
+      ok: true,
+      code: row.code,
+      expiresAt: row.expires_at,
+      isMultiUse: row.is_multi_use,
+    });
   } catch (error) {
     res.status(502).json({ ok: false, error: "Could not generate code" });
   }

@@ -85,7 +85,7 @@ function statusFor(row) {
 
 function renderCodes(codes) {
   if (codes.length === 0) {
-    codesBody.innerHTML = "<tr><td colspan=\"6\">No codes generated yet.</td></tr>";
+    codesBody.innerHTML = "<tr><td colspan=\"8\">No codes generated yet.</td></tr>";
     return;
   }
 
@@ -98,6 +98,8 @@ function renderCodes(codes) {
     tr.innerHTML = `
       <td>${row.product_id}</td>
       <td><code>${row.code}</code></td>
+      <td>${row.is_multi_use ? "Multi-use" : "One-time"}</td>
+      <td>${row.redeemed_count ?? 0}</td>
       <td>${formatDate(row.created_at)}</td>
       <td>${formatExpiry(row.expires_at)}</td>
       <td><span class="status-pill status-${status.toLowerCase()}">${status}</span></td>
@@ -122,12 +124,12 @@ function renderCodes(codes) {
 }
 
 async function loadCodes() {
-  codesBody.innerHTML = "<tr><td colspan=\"6\">Loading…</td></tr>";
+  codesBody.innerHTML = "<tr><td colspan=\"8\">Loading…</td></tr>";
 
   const data = await callAdmin("/api/admin/list");
 
   if (!data.ok) {
-    codesBody.innerHTML = "<tr><td colspan=\"6\">Could not load codes.</td></tr>";
+    codesBody.innerHTML = "<tr><td colspan=\"8\">Could not load codes.</td></tr>";
     return;
   }
 
@@ -157,12 +159,14 @@ if (loginForm) {
 generateButtons.forEach((button) => {
   button.addEventListener("click", async () => {
     const productId = button.dataset.generate;
-    const select = document.querySelector(`[data-expiry-select="${productId}"]`);
-    const hours = select && select.value !== "" ? Number(select.value) : null;
+    const expirySelect = document.querySelector(`[data-expiry-select="${productId}"]`);
+    const usageSelect = document.querySelector(`[data-usage-select="${productId}"]`);
+    const hours = expirySelect && expirySelect.value !== "" ? Number(expirySelect.value) : null;
+    const multiUse = !usageSelect || usageSelect.value === "multi";
 
     button.disabled = true;
 
-    const data = await callAdmin("/api/admin/generate", { productId, hours });
+    const data = await callAdmin("/api/admin/generate", { productId, hours, multiUse });
 
     button.disabled = false;
 
@@ -176,7 +180,7 @@ generateButtons.forEach((button) => {
     resultBox.innerHTML = `
       New code for <strong>${productId}</strong>:
       <code>${data.code}</code>
-      <small>${data.expiresAt ? `Expires ${formatDate(data.expiresAt)}` : "No expiration"} — one-time use.</small>
+      <small>${data.expiresAt ? `Expires ${formatDate(data.expiresAt)}` : "No expiration"} — ${data.isMultiUse ? "multi-use" : "one-time use"}.</small>
     `;
 
     loadCodes();

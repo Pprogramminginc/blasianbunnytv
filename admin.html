@@ -40,6 +40,10 @@
           <div class="admin-generate" aria-label="Generate a new code">
             <div class="generate-row">
               <span>Shipping Guide</span>
+              <select data-usage-select="shipping-guide">
+                <option value="multi" selected>Multi-use</option>
+                <option value="once">One-time use</option>
+              </select>
               <select data-expiry-select="shipping-guide">
                 <option value="1">Expires in 1 hour</option>
                 <option value="24" selected>Expires in 24 hours</option>
@@ -53,6 +57,10 @@
             </div>
             <div class="generate-row">
               <span>Shipping Book</span>
+              <select data-usage-select="shipping-book">
+                <option value="multi" selected>Multi-use</option>
+                <option value="once">One-time use</option>
+              </select>
               <select data-expiry-select="shipping-book">
                 <option value="1">Expires in 1 hour</option>
                 <option value="24" selected>Expires in 24 hours</option>
@@ -66,6 +74,10 @@
             </div>
             <div class="generate-row">
               <span>Shipping Bundle</span>
+              <select data-usage-select="shipping-bundle">
+                <option value="multi" selected>Multi-use</option>
+                <option value="once">One-time use</option>
+              </select>
               <select data-expiry-select="shipping-bundle">
                 <option value="1">Expires in 1 hour</option>
                 <option value="24" selected>Expires in 24 hours</option>
@@ -92,6 +104,8 @@
                 <tr>
                   <th>Product</th>
                   <th>Code</th>
+                  <th>Type</th>
+                  <th>Uses</th>
                   <th>Created</th>
                   <th>Expires</th>
                   <th>Status</th>
@@ -99,7 +113,7 @@
                 </tr>
               </thead>
               <tbody data-codes-body>
-                <tr><td colspan="6">Log in to view codes.</td></tr>
+                <tr><td colspan="8">Log in to view codes.</td></tr>
               </tbody>
             </table>
           </div>
