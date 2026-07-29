@@ -946,6 +946,324 @@ h3 {
   transform: translateY(0);
 }
 
+.downloads-intro {
+  max-width: 760px;
+  padding-bottom: 0;
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.download-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--soft-shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.download-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.download-cover {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.download-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.download-eyebrow {
+  color: var(--berry);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.download-card-body h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+.download-card-body > p {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.code-form {
+  margin-top: auto;
+}
+
+.code-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.code-form div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.code-form input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.code-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.code-form button:hover {
+  transform: translateY(-2px);
+}
+
+.code-note {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: var(--berry);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.download-card.is-unlocked .code-note {
+  color: #2c8a53;
+}
+
+.download-link {
+  width: 100%;
+  margin-top: auto;
+}
+
+.download-link[hidden] {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .downloads-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-shell {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.admin-login {
+  max-width: 420px;
+  margin-top: 20px;
+}
+
+.admin-login label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.admin-login div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.admin-login input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.admin-login button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-panel {
+  margin-top: 28px;
+}
+
+.admin-generate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.generate-result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.generate-result code {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--rose);
+  color: var(--plum);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.generate-result small {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.admin-table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.admin-table-head h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-table th {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-table code {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.status-pill {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background: var(--mint);
+  color: #1e6b3c;
+}
+
+.status-used {
+  background: rgba(32, 19, 23, 0.08);
+  color: var(--muted);
+}
+
+.status-expired {
+  background: rgba(184, 33, 101, 0.12);
+  color: var(--berry);
+}
+
+.revoke-button {
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--berry);
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.revoke-button:hover {
+  background: var(--rose);
+}
+
+@media (max-width: 760px) {
+  .admin-login div {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-login button {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

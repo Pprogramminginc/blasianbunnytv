@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta
+      name="description"
+      content="Enter your access code to download your copy of the Shipping Guide, Shipping Book, or Shipping Bundle."
+    >
+    <title>Book Downloads · Blasian Bunny TV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Blasian Bunny TV home">
+        <img src="assets/blasian-bunny-profile.jpg" alt="Blasian Bunny TV profile">
+        <span>Blasian Bunny TV</span>
+      </a>
+      <a class="header-action" href="index.html">Back to site</a>
+    </header>
+
+    <main id="top">
+      <section class="section downloads-intro">
+        <p class="eyebrow">Book Downloads</p>
+        <h1>Enter your access code to download your book.</h1>
+        <p>
+          Each code unlocks one download and expires 24 hours after it's issued. Check
+          the confirmation you received for your code, then enter it under the matching
+          title. Need a fresh code? Reach out and a new one will be sent.
+        </p>
+      </section>
+
+      <section class="section downloads-grid" aria-label="Book downloads">
+        <article class="download-card" data-download-card data-product-id="shipping-guide">
+          <img class="download-cover" src="assets/book-cover-placeholder.png" alt="">
+          <div class="download-card-body">
+            <span class="download-eyebrow">Digital Download</span>
+            <h2>Shipping Guide</h2>
+            <p>The quick-start guide to shipping smarter on Whatnot.</p>
+
+            <form class="code-form" data-code-form>
+              <label for="code-shipping-guide">Access code</label>
+              <div>
+                <input id="code-shipping-guide" type="text" autocomplete="off" placeholder="Enter code" required>
+                <button type="submit">Unlock</button>
+              </div>
+              <p class="code-note" data-code-note role="status" aria-live="polite"></p>
+            </form>
+
+            <a class="button primary download-link" data-download-link href="#" hidden download>
+              Download Shipping Guide
+            </a>
+          </div>
+        </article>
+
+        <article class="download-card" data-download-card data-product-id="shipping-book">
+          <img class="download-cover" src="assets/book-cover-placeholder.png" alt="">
+          <div class="download-card-body">
+            <span class="download-eyebrow">Digital Download</span>
+            <h2>Shipping Book</h2>
+            <p>The full book: strategy, mistakes to avoid, and step-by-step shipping systems.</p>
+
+            <form class="code-form" data-code-form>
+              <label for="code-shipping-book">Access code</label>
+              <div>
+                <input id="code-shipping-book" type="text" autocomplete="off" placeholder="Enter code" required>
+                <button type="submit">Unlock</button>
+              </div>
+              <p class="code-note" data-code-note role="status" aria-live="polite"></p>
+            </form>
+
+            <a class="button primary download-link" data-download-link href="#" hidden download>
+              Download Shipping Book
+            </a>
+          </div>
+        </article>
+
+        <article class="download-card" data-download-card data-product-id="shipping-bundle">
+          <img class="download-cover" src="assets/book-cover-placeholder.png" alt="">
+          <div class="download-card-body">
+            <span class="download-eyebrow">Digital Download</span>
+            <h2>Shipping Bundle</h2>
+            <p>The Shipping Guide and Shipping Book together, plus bonus bundle content.</p>
+
+            <form class="code-form" data-code-form>
+              <label for="code-shipping-bundle">Access code</label>
+              <div>
+                <input id="code-shipping-bundle" type="text" autocomplete="off" placeholder="Enter code" required>
+                <button type="submit">Unlock</button>
+              </div>
+              <p class="code-note" data-code-note role="status" aria-live="polite"></p>
+            </form>
+
+            <a class="button primary download-link" data-download-link href="#" hidden download>
+              Download Shipping Bundle
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Blasian Bunny TV</span>
+      <a href="index.html">Back to home</a>
+    </footer>
+
+    <script src="downloads.js"></script>
+  </body>
+</html>

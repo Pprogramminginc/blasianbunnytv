@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin · Download Codes · Blasian Bunny TV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Blasian Bunny TV home">
+        <img src="assets/blasian-bunny-profile.jpg" alt="Blasian Bunny TV profile">
+        <span>Blasian Bunny TV</span>
+      </a>
+      <a class="header-action" href="index.html">Back to site</a>
+    </header>
+
+    <main id="top">
+      <section class="section admin-shell">
+        <p class="eyebrow">Admin</p>
+        <h1>Download code manager</h1>
+
+        <form class="admin-login" data-login-form>
+          <label for="admin-password">Admin password</label>
+          <div>
+            <input id="admin-password" type="password" autocomplete="current-password" required>
+            <button type="submit">Log in</button>
+          </div>
+          <p class="code-note" data-login-error role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="admin-panel" data-admin-panel hidden>
+          <div class="admin-generate" aria-label="Generate a new code">
+            <button type="button" class="button primary" data-generate="shipping-guide">
+              Generate Shipping Guide code
+            </button>
+            <button type="button" class="button primary" data-generate="shipping-book">
+              Generate Shipping Book code
+            </button>
+            <button type="button" class="button primary" data-generate="shipping-bundle">
+              Generate Shipping Bundle code
+            </button>
+          </div>
+
+          <div class="generate-result" data-generate-result hidden></div>
+
+          <div class="admin-table-head">
+            <h2>Recent codes</h2>
+            <button type="button" class="button secondary" data-refresh>Refresh</button>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Code</th>
+                  <th>Created</th>
+                  <th>Expires</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody data-codes-body>
+                <tr><td colspan="6">Log in to view codes.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Blasian Bunny TV</span>
+      <a href="index.html">Back to home</a>
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
