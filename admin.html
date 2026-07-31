@@ -16,14 +16,18 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Blasian Bunny TV home">
-        <img src="assets/blasian-bunny-profile.jpg" alt="Blasian Bunny TV profile">
-        <span>Blasian Bunny TV</span>
+        <img data-site-photo src="assets/blasian-bunny-profile.jpg" alt="Blasian Bunny TV profile">
+        <span data-site-brand>Blasian Bunny TV</span>
       </a>
+      <nav class="nav-links" aria-label="Admin sections">
+        <a href="#codes">Download Codes</a>
+        <a href="#content">Site Content</a>
+      </nav>
       <a class="header-action" href="index.html">Back to site</a>
     </header>
 
     <main id="top">
-      <section class="section admin-shell">
+      <section class="section admin-shell" id="codes">
         <p class="eyebrow">Admin</p>
         <h1>Download code manager</h1>
 
@@ -119,6 +123,191 @@
           </div>
         </div>
       </section>
+
+      <section class="section admin-shell" id="content">
+        <p class="eyebrow">Admin</p>
+        <h1>Site content manager</h1>
+        <p class="content-intro">
+          This mirrors what's live on the site. Click the pencil on any section to edit it.
+        </p>
+
+        <form class="admin-login" data-content-login-form>
+          <label for="content-admin-password">Admin password</label>
+          <div>
+            <input id="content-admin-password" type="password" autocomplete="current-password" required>
+            <button type="submit">Log in</button>
+          </div>
+          <p class="code-note" data-content-login-error role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="content-preview" data-content-panel hidden>
+
+          <!-- Top ribbon -->
+          <div class="preview-block" data-block="ribbon">
+            <button type="button" class="edit-pencil" data-edit-toggle="ribbon" aria-label="Edit top ribbon">&#9998;</button>
+            <div class="top-ribbon cp-embed">
+              <span data-preview="topRibbonText"></span>
+              <a href="#">Reserve a copy</a>
+            </div>
+            <div class="edit-panel" data-panel="ribbon" hidden>
+              <label>Ribbon text
+                <input type="text" data-field="topRibbonText" maxlength="120">
+              </label>
+              <label>Ribbon link URL
+                <input type="url" data-field="topRibbonUrl" placeholder="https://...">
+              </label>
+              <div class="edit-panel-actions">
+                <button type="button" class="button secondary" data-cancel>Cancel</button>
+                <button type="button" class="button primary" data-save-settings>Save</button>
+              </div>
+              <p class="code-note" data-save-status="ribbon"></p>
+            </div>
+          </div>
+
+          <!-- Header -->
+          <div class="preview-block" data-block="header">
+            <button type="button" class="edit-pencil" data-edit-toggle="header" aria-label="Edit header photo and brand name">&#9998;</button>
+            <header class="site-header cp-embed">
+              <span class="brand">
+                <img data-preview-img="profileImageUrl" alt="">
+                <span data-preview="brandName"></span>
+              </span>
+            </header>
+            <div class="edit-panel" data-panel="header" hidden>
+              <label>Upload a new photo
+                <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-photo-input="header">
+              </label>
+              <label>Or paste an image URL
+                <input type="url" data-field="profileImageUrl" placeholder="https://...">
+              </label>
+              <label>Brand name
+                <input type="text" data-field="brandName" maxlength="80">
+              </label>
+              <p class="code-note" data-upload-status="header"></p>
+              <div class="edit-panel-actions">
+                <button type="button" class="button secondary" data-cancel>Cancel</button>
+                <button type="button" class="button primary" data-save-settings>Save</button>
+              </div>
+              <p class="code-note" data-save-status="header"></p>
+            </div>
+          </div>
+
+          <!-- Hero -->
+          <div class="preview-block" data-block="hero">
+            <button type="button" class="edit-pencil" data-edit-toggle="hero" aria-label="Edit hero section">&#9998;</button>
+            <section class="hero-section cp-embed" aria-hidden="true">
+              <div class="hero-media">
+                <img data-preview-img="profileImageUrl" alt="">
+                <div class="hero-media-card">
+                  <span data-preview="heroCardLabel"></span>
+                  <strong data-preview="heroCardText"></strong>
+                </div>
+              </div>
+              <div class="hero-content">
+                <p class="eyebrow" data-preview="heroEyebrow"></p>
+                <h2 data-preview="heroTitle"></h2>
+                <p class="hero-copy" data-preview="heroCopy"></p>
+                <div class="hero-actions">
+                  <span class="button primary" data-preview="primaryButtonText"></span>
+                  <span class="button secondary" data-preview="secondaryButtonText"></span>
+                </div>
+              </div>
+            </section>
+            <div class="edit-panel" data-panel="hero" hidden>
+              <label>Eyebrow text
+                <input type="text" data-field="heroEyebrow" maxlength="120">
+              </label>
+              <label>Headline
+                <input type="text" data-field="heroTitle" maxlength="160">
+              </label>
+              <label>Description
+                <textarea data-field="heroCopy" maxlength="400" rows="3"></textarea>
+              </label>
+              <label>Photo card label
+                <input type="text" data-field="heroCardLabel" maxlength="60">
+              </label>
+              <label>Photo card subtitle
+                <input type="text" data-field="heroCardText" maxlength="140">
+              </label>
+              <label>Primary button text
+                <input type="text" data-field="primaryButtonText" maxlength="40">
+              </label>
+              <label>Primary button link
+                <input type="url" data-field="primaryButtonUrl" placeholder="https://...">
+              </label>
+              <label>Secondary button text
+                <input type="text" data-field="secondaryButtonText" maxlength="40">
+              </label>
+              <label>Secondary button link
+                <input type="url" data-field="secondaryButtonUrl" placeholder="https://...">
+              </label>
+              <div class="edit-panel-actions">
+                <button type="button" class="button secondary" data-cancel>Cancel</button>
+                <button type="button" class="button primary" data-save-settings>Save</button>
+              </div>
+              <p class="code-note" data-save-status="hero"></p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="preview-block" data-block="nav">
+            <button type="button" class="edit-pencil" data-edit-toggle="nav" aria-label="Edit navigation links">&#9998;</button>
+            <div class="hero-tags cp-embed" data-preview-nav></div>
+            <div class="edit-panel" data-panel="nav" hidden>
+              <div class="list-editor" data-nav-list></div>
+              <div class="list-add-row">
+                <input type="text" placeholder="Label" data-new-nav-label>
+                <input type="text" placeholder="Link (https://..., #section, or page.html?slug=...)" data-new-nav-href>
+                <label class="list-item-checkbox"><input type="checkbox" data-new-nav-blank> New tab</label>
+                <button type="button" class="button primary" data-add-nav>Add link</button>
+              </div>
+              <p class="code-note" data-save-status="nav"></p>
+            </div>
+          </div>
+
+          <!-- YouTube videos -->
+          <div class="preview-block" data-block="videos">
+            <button type="button" class="edit-pencil" data-edit-toggle="videos" aria-label="Edit YouTube videos">&#9998;</button>
+            <div class="video-selector cp-embed" data-preview-video-grid></div>
+            <div class="edit-panel" data-panel="videos" hidden>
+              <div class="list-editor" data-video-list></div>
+              <div class="list-add-row">
+                <input type="text" placeholder="YouTube video ID or URL" data-new-video-id>
+                <input type="text" placeholder="Title" data-new-video-title>
+                <input type="text" placeholder="Short label (shown on thumbnail)" data-new-video-label>
+                <button type="button" class="button primary" data-add-video>Add video</button>
+              </div>
+              <p class="code-note" data-save-status="videos"></p>
+            </div>
+          </div>
+
+          <!-- Custom pages -->
+          <div class="preview-block" data-block="pages">
+            <button type="button" class="edit-pencil" data-edit-toggle="pages" aria-label="Edit custom pages">&#9998;</button>
+            <div class="cp-pages">
+              <p class="eyebrow">Custom Pages</p>
+              <div class="cp-pages-list" data-preview-pages-list></div>
+            </div>
+            <div class="edit-panel" data-panel="pages" hidden>
+              <div class="list-editor" data-pages-list></div>
+              <div class="list-add-row page-add-row">
+                <input type="text" placeholder="Page title" data-new-page-title>
+                <input type="text" placeholder="URL slug (e.g. sizing-guide)" data-new-page-slug>
+                <input type="text" placeholder="Subtitle (optional)" data-new-page-subtitle>
+                <textarea placeholder="Page content" data-new-page-body rows="3"></textarea>
+                <label>Upload an image
+                  <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-new-page-photo>
+                </label>
+                <input type="url" placeholder="Or paste an image URL" data-new-page-image>
+                <p class="code-note" data-upload-status="new-page"></p>
+                <button type="button" class="button primary" data-add-page>Create page</button>
+              </div>
+              <p class="code-note" data-save-status="pages"></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -126,6 +315,8 @@
       <a href="index.html">Back to home</a>
     </footer>
 
+    <script src="site-content.js"></script>
     <script src="admin.js"></script>
+    <script src="admin-content.js"></script>
   </body>
 </html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blasian Bunny TV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Blasian Bunny TV home">
+        <img data-site-photo src="assets/blasian-bunny-profile.jpg" alt="Blasian Bunny TV profile">
+        <span data-site-brand>Blasian Bunny TV</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation" data-site-nav>
+        <a href="index.html#whatnot">Whatnot</a>
+        <a href="index.html#links">Links</a>
+        <a href="index.html#youtube">YouTube</a>
+        <a href="index.html#book">Book</a>
+        <a href="downloads.html">Digital Book Download</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="header-action" href="index.html">Back to site</a>
+    </header>
+
+    <main id="top">
+      <section class="section custom-page" data-page-loading>
+        <p class="eyebrow">Loading…</p>
+      </section>
+
+      <section class="section custom-page" data-page-content hidden>
+        <img class="custom-page-image" data-page-image alt="" hidden>
+        <p class="eyebrow" data-page-subtitle hidden></p>
+        <h1 data-page-title></h1>
+        <div class="custom-page-body" data-page-body></div>
+      </section>
+
+      <section class="section custom-page" data-page-not-found hidden>
+        <p class="eyebrow">Not found</p>
+        <h1>We couldn't find that page.</h1>
+        <p>It may have been unpublished or moved.</p>
+        <a class="button primary" href="index.html">Back to home</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Blasian Bunny TV</span>
+      <a href="index.html">Back to home</a>
+    </footer>
+
+    <script src="site-content.js"></script>
+    <script src="page.js"></script>
+  </body>
+</html>
